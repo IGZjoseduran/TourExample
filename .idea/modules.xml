@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AwesomeTour.iml" filepath="$PROJECT_DIR$/AwesomeTour.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AwesomeTour/AwesomeTour-AwesomeTour.iml" filepath="$PROJECT_DIR$/AwesomeTour/AwesomeTour-AwesomeTour.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AwesomeTour/AwesomeTour.iml" filepath="$PROJECT_DIR$/AwesomeTour/AwesomeTour.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourExample.iml" filepath="$PROJECT_DIR$/TourExample.iml" />
     </modules>
   </component>
 </project>

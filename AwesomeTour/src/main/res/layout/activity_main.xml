@@ -49,7 +49,6 @@
 				android:layout_height="match_parent"
 				android:ellipsize="none"
 				android:gravity="bottom"
-				android:paddingBottom="75dp"
 				android:singleLine="true"
 				android:text="this text is below the pager"
 				android:textColor="#55000000"

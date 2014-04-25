@@ -2,8 +2,6 @@ package com.intelygenz.awesometour.customviews;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
@@ -16,16 +14,13 @@ import java.util.List;
  * Created by jose.duran on 24/04/2014.
  */
 public class ParallaxViewPager extends ViewPager {
+	//Layers
 	private List<HorizontalScrollView> mLayers;
+	//Layer orientation
 	private List<Boolean> mReverse;
-	private FragmentPagerAdapter mPagerAdapter;
+
 	private FragmentManager mFragmentManager;
 
-	@Override
-	public void setAdapter(PagerAdapter adapter) {
-		mPagerAdapter = (FragmentPagerAdapter) adapter;
-		super.setAdapter(adapter);
-	}
 
 	public void setFragmentManager(FragmentManager fragmentManager) {
 		mFragmentManager = fragmentManager;
@@ -54,6 +49,9 @@ public class ParallaxViewPager extends ViewPager {
 	public void addReverseLayer(HorizontalScrollView layer) {
 		mLayers.add(layer);
 		mReverse.add(true);
+		/**
+		 * Reverse layers start focused on right
+		 */
 		layer.fullScroll(FOCUS_RIGHT);
 	}
 
@@ -83,14 +81,16 @@ public class ParallaxViewPager extends ViewPager {
 		}
 	}
 
+
 	private void animateFragmentContent(int position, float positionOffset) {
 		if (mFragmentManager != null) {
-			//Current Fragment
+			//Current Fragment is always exiting
 			IScrollDependent f = (IScrollDependent) mFragmentManager.findFragmentByTag(makeFragmentName(this.getId(), position));
 			if (f != null) {
 				f.onScroll(positionOffset, IScrollDependent.MoveType.ON_EXIT);
 			}
-			//next Fragment
+
+			//Next Fragment is always entering
 			IScrollDependent nextFragment = (IScrollDependent) mFragmentManager.findFragmentByTag(makeFragmentName(this.getId(), position + 1));
 			if (nextFragment != null) {
 				nextFragment.onScroll(positionOffset, IScrollDependent.MoveType.ON_ENTER);

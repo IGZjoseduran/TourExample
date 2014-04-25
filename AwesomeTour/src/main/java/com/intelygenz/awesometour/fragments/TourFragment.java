@@ -14,7 +14,6 @@ import com.nineoldandroids.view.ViewHelper;
 
 
 public class TourFragment extends Fragment implements IScrollDependent {
-	public static final String SCROLL_ANIMATED_FRAGMENT = "scroll_animated_fragment";
 	private static final String BUNDLE_EXTRA_POSITION = "position";
 	private ImageView mMainImage;
 	private ImageView mFirstImage;
@@ -41,11 +40,6 @@ public class TourFragment extends Fragment implements IScrollDependent {
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.page, container, false);
 
@@ -64,10 +58,6 @@ public class TourFragment extends Fragment implements IScrollDependent {
 		mPosition = getArguments().getInt(BUNDLE_EXTRA_POSITION, 0);
 	}
 
-	@Override
-	public void onDetach() {
-		super.onDetach();
-	}
 
 	/**
 	 * To animate views
@@ -90,11 +80,22 @@ public class TourFragment extends Fragment implements IScrollDependent {
 	}
 
 
-
+	/**
+	 * Entering in scene. make a translation
+	 * @param offset
+	 * @param view
+	 * @param fromX
+	 */
 	private void enterImage(float offset, View view,  int fromX){
 		ViewHelper.setTranslationX(view, (1-offset) * fromX);
 	}
 
+	/**
+	 * Exiting the scene. make translation
+	 * @param offset,
+	 * @param view
+	 * @param toX
+	 */
 	private void exitImage(float offset, View view, int toX){
 		ViewHelper.setTranslationX(view, (offset) * toX);
 	}

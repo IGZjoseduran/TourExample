@@ -23,12 +23,23 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		mViewPager = (ParallaxViewPager) findViewById(R.id.viewPager);
+
+		/**
+		 * Needed Fragment Manager to animate fragment content
+		 */
 		mViewPager.setFragmentManager(getSupportFragmentManager());
+		/**
+		 * Animate Horizontal ScrollView in parallax effect
+		 */
 		mViewPager.addLayer((HorizontalScrollView) findViewById(R.id.layer0));
+
+		/**
+		 * Animate Horizontal ScrollView in a reverse parallax effect
+		 */
 		mViewPager.addReverseLayer((HorizontalScrollView) findViewById(R.id.layer1));
 
-		CustomAdapter customAdapter = new CustomAdapter(getSupportFragmentManager());
-		mViewPager.setAdapter(customAdapter);
+
+		mViewPager.setAdapter(new CustomAdapter(getSupportFragmentManager()));
 
 	}
 

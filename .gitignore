@@ -23,4 +23,5 @@ local.properties
 proguard/
 
 # IntelliJ files
-.idea/
+.idea/*
+

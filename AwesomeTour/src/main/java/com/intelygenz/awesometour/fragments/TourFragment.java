@@ -41,7 +41,20 @@ public class TourFragment extends Fragment implements IScrollDependent {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.page, container, false);
+		View view = null;
+
+		switch (mPosition){
+			case 2:
+				view = inflater.inflate(R.layout.page2, container, false);
+				break;
+			case 1:
+				view = inflater.inflate(R.layout.page1, container, false);
+				break;
+			case 0:
+			default:
+				view = inflater.inflate(R.layout.page, container, false);
+		}
+
 
 		mMainImage = (ImageView) view.findViewById(R.id.iv_main);
 		mFirstImage = (ImageView) view.findViewById(R.id.iv_first_image);

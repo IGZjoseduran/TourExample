@@ -1,8 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".MainActivity" >
+	android:layout_height="match_parent" >
 
 	<!-- First layer -->
 	<!--
@@ -49,7 +48,7 @@
 				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
 				android:ellipsize="none"
-				android:gravity="center_vertical"
+				android:gravity="bottom"
 				android:paddingBottom="75dp"
 				android:singleLine="true"
 				android:text="this text is below the pager"
@@ -63,7 +62,7 @@
 
 	<!-- Viewpager -->
 
-	<com.jduran.awesometour.app.customviews.ParallaxViewPager
+	<com.intelygenz.awesometour.customviews.ParallaxViewPager
 		android:id="@+id/viewPager"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

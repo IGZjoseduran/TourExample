@@ -1,75 +1,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent" >
+	android:layout_height="match_parent">
 
-	<!-- First layer -->
-	<!--
-	This NEED to be a horizontal scroll view.
-	In this example, the content of the view in only a TextView, but you may want to place an image here
-	For the example, I've set such a text and a text size that will make the content view be wider that the screen.
-	-->
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true">
 
-	<HorizontalScrollView
-		android:id="@+id/layer0"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:scrollbars="none">
-
-		<ImageView
+		<Button
+			android:id="@+id/bt_parallax"
 			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:scaleType="fitXY"
-			android:src="@drawable/bg_parallax"/>
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:text="Parallax Tour" />
 
-	</HorizontalScrollView>
-
-	<!-- Second layer -->
-
-	<HorizontalScrollView
-		android:id="@+id/layer1"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:scrollbars="none">
-
-		<LinearLayout
+		<Button
+			android:id="@+id/bt_background"
 			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:gravity="center_vertical"
-			android:visibility="visible">
-
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="top"
-				android:scaleType="fitXY"
-				android:src="@drawable/cloud"/>
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="match_parent"
-				android:ellipsize="none"
-				android:gravity="bottom"
-				android:singleLine="true"
-				android:text="this text is below the pager"
-				android:textColor="#55000000"
-				android:textSize="150sp"
-				android:visibility="visible"/>
-			</LinearLayout>
-
-
-	</HorizontalScrollView>
-
-	<!-- Viewpager -->
-
-	<com.intelygenz.awesometour.customviews.ParallaxViewPager
-		android:id="@+id/viewPager"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentEnd="true"
-		/>
-
-
-
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:text="Video Background" />
+	</LinearLayout>
 </RelativeLayout>

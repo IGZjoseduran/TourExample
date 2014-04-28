@@ -1,5 +1,6 @@
 package com.intelygenz.awesometour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,42 +8,51 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.HorizontalScrollView;
-import com.intelygenz.awesometour.customviews.ParallaxViewPager;
+import android.view.View;
+import android.widget.Button;
 import com.intelygenz.awesometour.fragments.TourFragment;
 
 
 public class MainActivity extends ActionBarActivity {
 
-	private ParallaxViewPager mViewPager;
-
+	private Button mParallaxButton;
+	private Button mBackgroundButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mViewPager = (ParallaxViewPager) findViewById(R.id.viewPager);
-
-		/**
-		 * Needed Fragment Manager to animate fragment content
-		 */
-		mViewPager.setFragmentManager(getSupportFragmentManager());
-		/**
-		 * Animate Horizontal ScrollView in parallax effect
-		 */
-		mViewPager.addLayer((HorizontalScrollView) findViewById(R.id.layer0));
-
-		/**
-		 * Animate Horizontal ScrollView in a reverse parallax effect
-		 */
-		mViewPager.addReverseLayer((HorizontalScrollView) findViewById(R.id.layer1));
+		mParallaxButton = (Button) findViewById(R.id.bt_parallax);
+		mBackgroundButton = (Button) findViewById(R.id.bt_background);
 
 
-		mViewPager.setAdapter(new CustomAdapter(getSupportFragmentManager()));
 
 	}
 
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		setListeners();
+	}
+
+	private void setListeners(){
+		mParallaxButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, ParallaxTourActivity.class);
+				startActivity(intent);
+			}
+		});
+		mBackgroundButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, VideoBackgroundActivity.class);
+				startActivity(intent);
+			}
+		});
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	private class CustomAdapter extends FragmentPagerAdapter {
 
-		private static final int PAGES_COUNT = 3;
+		private static final int PAGES_COUNT = 5;
 
 
 		public CustomAdapter(FragmentManager fm) {

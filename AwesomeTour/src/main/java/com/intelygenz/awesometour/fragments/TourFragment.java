@@ -79,16 +79,18 @@ public class TourFragment extends Fragment implements IScrollDependent {
 	@Override
 	public void onScroll(float offset, MoveType moveType) {
 		Log.d("OnScroll", "" + offset);
-		if(moveType == MoveType.ON_ENTER) {
-			enterImage(offset, mMainImage, fromXMain);
-			enterImage(offset, mFirstImage, fromXFirst);
-			enterImage(offset, mSecondImage, fromXSecond);
-			enterImage(offset, mThirdImage, fromXThird);
-		} else {
-			exitImage(offset, mMainImage, -fromXMain);
-			exitImage(offset, mFirstImage, -fromXFirst);
-			exitImage(offset, mSecondImage, -fromXSecond);
-			exitImage(offset, mThirdImage, -fromXThird);
+		if(mMainImage != null && mFirstImage != null && mSecondImage != null && mThirdImage != null) {
+			if (moveType == MoveType.ON_ENTER) {
+				enterImage(offset, mMainImage, fromXMain);
+				enterImage(offset, mFirstImage, fromXFirst);
+				enterImage(offset, mSecondImage, fromXSecond);
+				enterImage(offset, mThirdImage, fromXThird);
+			} else {
+				exitImage(offset, mMainImage, -fromXMain);
+				exitImage(offset, mFirstImage, -fromXFirst);
+				exitImage(offset, mSecondImage, -fromXSecond);
+				exitImage(offset, mThirdImage, -fromXThird);
+			}
 		}
 	}
 
@@ -100,7 +102,7 @@ public class TourFragment extends Fragment implements IScrollDependent {
 	 * @param fromX
 	 */
 	private void enterImage(float offset, View view,  int fromX){
-		ViewHelper.setTranslationX(view, (1-offset) * fromX);
+			ViewHelper.setTranslationX(view, (1 - offset) * fromX);
 	}
 
 	/**
